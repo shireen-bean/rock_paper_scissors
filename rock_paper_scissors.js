@@ -1,11 +1,9 @@
-console.log("anything");
 var botScore=0,
 	playerScore=0;
 
-document.getElementById("rock").onclick=playerThrowsRock;
+/*document.getElementById("rock").onclick=playerThrowsRock;
 document.getElementById("paper").onclick=playerThrowsPaper;
 document.getElementById("scissors").onclick=playerThrowsScissors;
-
 
 function playerThrowsRock(){
 	var playersWeapon = "rock";
@@ -25,7 +23,33 @@ function playerThrowsPaper(){
 	checkWhoWon(botsWeapon,"paper");
 
 }
-function getRandomWeapon(){
+
+*/
+
+var getPlayerMove = function();
+var playerMove = prompt("Enter your move - rock, paper, or scissors");
+switch (move) {
+	case 'rock':
+		var playerMove = "rock";
+		var botsWeapon = getComputerMove();
+		checkWhoWon(botsWeapon,"rock");
+		break;
+	case 'paper':
+		var playerMove = "paper";
+		var botsWeapon = getComputerMove();
+		checkWhoWon(botsWeapon,"paper");
+		break;
+	case 'scissors':
+		var playerMove = "scissors";
+		var botsWeapon = getComputerMove();
+		checkWhoWon(botsWeapon,"scissors");
+		break;
+	default:
+		console.log("Sorry, please enter a valid move.");
+}
+
+
+function getComputerMove(){
 	var randomNumber=Math.random();
 	var botsWeapon="rock";
 	if(randomNumber<.33){
@@ -41,7 +65,7 @@ function getRandomWeapon(){
 function checkWhoWon(botsWeapon,playersWeapon){
 	console.log(playersWeapon)
 	if(botsWeapon==playersWeapon){
-		displayCompleteMessage("There was tie");
+		console.log("There was tie");
 	}
 	else if(
 		(botsWeapon=="scissors" && playersWeapon=="paper") ||
@@ -57,14 +81,17 @@ function checkWhoWon(botsWeapon,playersWeapon){
 function increaseBotScore(){
 	botScore+=1;
 	document.getElementById("computerScore").innerHTML=botScore;
-	displayCompleteMessage("Sorry, you're a loser");
+	console.log("Sorry, you're a loser");
 }
 function increasePlayerScore(){
 	playerScore+=1;
 	document.getElementById("humanScore").innerHTML=playerScore;
-	displayCompleteMessage("Yay, you're a winner!");
+	console.log("Yay, you're a winner!");
 
 }
+
+/*
 function displayCompleteMessage(msg){
 	document.getElementById("status").innerHTML=msg;
 }
+*/
